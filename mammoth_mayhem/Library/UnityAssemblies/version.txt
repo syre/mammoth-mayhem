@@ -1,2 +1,7 @@
 5.4.0f3:2.3.0.0
 StandaloneWindows
+D:/New Unity/Editor/Data/Managed/UnityEngine.dll
+D:/New Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll
+D:/New Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll
+D:/New Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll
+D:/New Unity/Editor/Data/Managed/UnityEditor.dll
