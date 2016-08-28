@@ -7,6 +7,8 @@ public class MapPlacer : MonoBehaviour {
 	public GameObject mapWithoutContentsPrefab;
 	public GameObject fullcontentMapPrefab;
 	public GameObject[][] tiles;
+	public GameObject tentPrefab;
+	private GameObject tent;
 	private GameObject mapWithoutContents;
 	private GameObject mapWithContents;
 	public float startXLocation;
@@ -26,6 +28,7 @@ public class MapPlacer : MonoBehaviour {
 	private void generateMap(){
 		mapWithContents = Instantiate (fullcontentMapPrefab) as GameObject;
 		mapWithoutContents = Instantiate (mapWithoutContentsPrefab) as GameObject;
+		tent = Instantiate (tentPrefab) as GameObject;
 		float xSize = tilesPrefab.GetComponent<SpriteRenderer> ().bounds.size.x;
 		float ySize = tilesPrefab.GetComponent<SpriteRenderer> ().bounds.size.y;
 		tiles = new GameObject[40][];
@@ -52,6 +55,7 @@ public class MapPlacer : MonoBehaviour {
 	public void hideMap(){
 		mapWithContents.gameObject.SetActive (false);
 		mapWithoutContents.gameObject.SetActive (false);
+		tent.gameObject.SetActive (false);
 		for (int i = 0; i < 40; i++) {
 			for (int x = 0; x < 40; x++) {
 				if (tiles [i] [x] != null) {
@@ -65,6 +69,7 @@ public class MapPlacer : MonoBehaviour {
 	public void showMap(){
 		mapWithContents.gameObject.SetActive (true);
 		mapWithoutContents.gameObject.SetActive (true);
+		tent.gameObject.SetActive (true);
 		for (int i = 0; i < 40; i++) {
 			for (int x = 0; x < 40; x++) {
 				if (tiles [i] [x] != null) {
@@ -82,7 +87,7 @@ public class MapPlacer : MonoBehaviour {
 			int random = Random.Range (0, 40);
 			int random2 = Random.Range (0, 40);
 			if (tiles [random] [random2] != null) {
-				tiles [random] [random2].GetComponent<SpriteRenderer> ().color = new Color (0f, 0f, 1f, 1f);
+				Destroy (tiles [random] [random2]);
 				comp = false;
 			}
 		}
